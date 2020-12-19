@@ -16,5 +16,7 @@
 
 问题：Apple 文档上写不要在init和dealloc方法中使用setter/getter，但是没有写具体的理由。
 
+解释：其中提到的一个原因是会触发KVO通知。还有就是当自己重写了setter或者子类复写了setter，此时setter内部会进行一些操作，这个时候对象其实还没有完全初始化。
+
 [Apple Doc](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html)
 [stackoverflow discussion](https://stackoverflow.com/questions/10505274/don-t-use-accessor-methods-in-initializer-methods-and-dealloc?noredirect=1&lq=1)
